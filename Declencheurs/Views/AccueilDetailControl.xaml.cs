@@ -9,13 +9,13 @@ namespace Declencheurs.Views
 {
     public sealed partial class AccueilDetailControl : UserControl
     {
-        public SampleOrder MasterMenuItem
+        public Declencheur MasterMenuItem
         {
-            get { return GetValue(MasterMenuItemProperty) as SampleOrder; }
+            get { return GetValue(MasterMenuItemProperty) as Declencheur; }
             set { SetValue(MasterMenuItemProperty, value); }
         }
 
-        public static readonly DependencyProperty MasterMenuItemProperty = DependencyProperty.Register("MasterMenuItem", typeof(SampleOrder), typeof(AccueilDetailControl), new PropertyMetadata(null));
+        public static readonly DependencyProperty MasterMenuItemProperty = DependencyProperty.Register("MasterMenuItem", typeof(Declencheur), typeof(AccueilDetailControl), new PropertyMetadata(null));
 
         public AccueilDetailControl()
         {

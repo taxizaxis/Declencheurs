@@ -13,9 +13,9 @@ namespace Declencheurs.Views
 {
     public sealed partial class AccueilDetailPage : Page, INotifyPropertyChanged
     {
-        private SampleOrder _item;
+        private Declencheur _item;
 
-        public SampleOrder Item
+        public Declencheur Item
         {
             get { return _item; }
             set { Set(ref _item, value); }
@@ -28,7 +28,7 @@ namespace Declencheurs.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Item = e.Parameter as SampleOrder;
+            Item = e.Parameter as Declencheur;
         }
 
         private void WindowStates_CurrentStateChanged(object sender, VisualStateChangedEventArgs e)

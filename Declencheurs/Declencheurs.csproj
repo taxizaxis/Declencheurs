@@ -136,10 +136,12 @@
     <Compile Include="Helpers\Json.cs" />
     <Compile Include="Helpers\SettingsStorageExtensions.cs" />
     <Compile Include="Helpers\TaskExtensions.cs" />
+    <Compile Include="Models\Declencheur.cs" />
     <Compile Include="Models\SampleOrder.cs" />
     <Compile Include="Services\ActivationService.cs" />
     <Compile Include="Activation\DefaultLaunchActivationHandler.cs" />
     <Compile Include="Services\BackgroundTaskService.cs" />
+    <Compile Include="Services\DeclencheursService.cs" />
     <Compile Include="Services\FirstRunDisplayService.cs" />
     <Compile Include="Services\HubNotificationsService.cs" />
     <Compile Include="Services\LiveTileService.cs" />
@@ -160,6 +162,9 @@
     </Compile>
     <Compile Include="Views\AccueilDetailPage.xaml.cs">
       <DependentUpon>AccueilDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccueilPage - Copier.xaml.cs">
+      <DependentUpon>AccueilPage - Copier.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AccueilPage.xaml.cs">
       <DependentUpon>AccueilPage.xaml</DependentUpon>
@@ -219,6 +224,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AccueilDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AccueilPage - Copier.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

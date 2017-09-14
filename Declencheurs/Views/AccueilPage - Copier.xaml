@@ -13,7 +13,7 @@
         </TransitionCollection>
     </Page.Transitions>
     <Page.Resources>
-        <DataTemplate x:Key="MasterListViewItemTemplate" x:DataType="model:Declencheur">
+        <DataTemplate x:Key="MasterListViewItemTemplate" x:DataType="model:SampleOrder">
             <Grid Margin="{StaticResource MediumLeftTopRightBottomMargin}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -21,12 +21,12 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock 
-                    Text="{x:Bind DeclencheursId}" 
+                    Text="{x:Bind OrderId}" 
                     Style="{StaticResource ListTitleStyle}" />
 
                 <TextBlock
                     Grid.Row="1"
-                    Text="{x:Bind Nom}"
+                    Text="{x:Bind Company}"
                     Style="{StaticResource ListSubTitleStyle}" />
             </Grid>
         </DataTemplate>
