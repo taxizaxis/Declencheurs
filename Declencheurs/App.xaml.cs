@@ -71,7 +71,7 @@ namespace Declencheurs
 
         private ActivationService CreateActivationService()
         {
-            return new ActivationService(this, typeof(Views.MainPage), new Views.ShellPage());
+            return new ActivationService(this, typeof(Views.AccueilPage), new Views.ShellPage());
         }
     }
 }
