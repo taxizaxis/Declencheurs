@@ -35,6 +35,14 @@
 
     <Style x:Key="ListSubTitleStyle" TargetType="TextBlock">
         <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="Opacity" Value="0.8"/>
+        <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"/>
+        <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+        <Setter Property="TextWrapping" Value="NoWrap"/>
+    </Style>
+
+    <Style x:Key="ListSubSubTitleStyle" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="Opacity" Value="0.6"/>
         <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"/>
         <Setter Property="TextTrimming" Value="CharacterEllipsis"/>

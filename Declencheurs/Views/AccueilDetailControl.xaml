@@ -15,7 +15,7 @@
 
         <TextBlock
             x:Name="TitlePage"
-            Text="{x:Bind MasterMenuItem.OrderId, Mode=OneWay}"
+            Text="{x:Bind MasterMenuItem.DeclencheursId, Mode=OneWay}"
             Style="{StaticResource PageTitleStyle}" />
 
         <ScrollViewer
@@ -29,16 +29,37 @@
 
                 <!--Replate this StackPanel with your detail content.-->
                 <StackPanel Orientation="Vertical" Margin="{StaticResource MediumLeftTopRightBottomMargin}">
-                    <TextBlock Text="Order Date" Style="{StaticResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="{x:Bind MasterMenuItem.Heure, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />
-                    <TextBlock Text="Company" Style="{StaticResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="{x:Bind MasterMenuItem.Composant, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />
-                    <TextBlock Text="Ship to" Style="{StaticResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="{x:Bind MasterMenuItem.Repetition, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />
-                    <TextBlock Text="Order Total" Style="{StaticResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="{x:Bind MasterMenuItem.Son, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />
-                    <TextBlock Text="Status" Style="{StaticResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="{x:Bind MasterMenuItem.IntervalRepetition, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />
+
+                    <TextBlock x:Name="TitreNom" Text="Nom du déclencheur" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0" />
+                    <TextBox x:Name="Nom" Text="{Binding Nom}" Width="500" Margin="0,12,0,0" RelativePanel.Below="TitreNom" />
+
+                    <TextBlock x:Name="TitreHeure" Text="Heure" Style="{StaticResource HeaderTextBlockStyle }" RelativePanel.Below="TitreNom" Margin="0,12,0,0"/>
+                    <TimePicker x:Name="Heure" ClockIdentifier="24HourClock" RelativePanel.Below="TitreHeure" Margin="0,12,0,0"/>
+                    <!--<TextBlock Text="{x:Bind MasterMenuItem.Heure, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />-->
+
+                    <TextBlock x:Name="TitreComposant" Text="Composant" Style="{StaticResource CaptionTextBlockStyle}" RelativePanel.Below="Heure" Margin="0,12,0,0" />
+                    <ComboBox x:Name="Composant" Height="20" Width="150" ItemsSource="{Binding}" RelativePanel.Below="TitreComposant" Margin="0,12,0,0"/>
+                    <!--<TextBlock Text="{x:Bind MasterMenuItem.Composant, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />-->
+
+                    <TextBlock Text="Jours" Style="{StaticResource CaptionTextBlockStyle}" Margin="0,12,0,0" RelativePanel.Below="Composant"/>
+                    <StackPanel x:Name="ListJour" Margin="0,12,0,0"  RelativePanel.Below="Jours">
+                        <CheckBox x:Name="CheckboxAll" Checked="SelectAll_Checked" Indeterminate="SelectAll_Indeterminate" Unchecked="SelectAll_Unchecked" Content="Tous les jours" IsThreeState="True" />
+                        <CheckBox x:Name="CheckboxLundi" Checked="Option_Checked" Content="Lundi" Unchecked="Option_Unchecked"/>
+                        <CheckBox x:Name="CheckboxMardi" Checked="Option_Checked" Content="Mardi" Unchecked="Option_Unchecked"/>
+                        <CheckBox x:Name="CheckboxMercredi" Checked="Option_Checked" Content="Mercredi" Unchecked="Option_Unchecked"/>
+                        <CheckBox x:Name="CheckboxJeudi" Checked="Option_Checked" Content="Jeudi" Unchecked="Option_Unchecked"/>
+                        <CheckBox x:Name="CheckboxVendredi" Checked="Option_Checked" Content="Vendredi" Unchecked="Option_Unchecked"/>
+                        <CheckBox x:Name="CheckboxSamedi" Checked="Option_Checked" Content="Samedi" Unchecked="Option_Unchecked"/>
+                        <CheckBox x:Name="CheckboxDimanche" Checked="Option_Checked" Content="Dimanche" Unchecked="Option_Unchecked"/>
+                    </StackPanel>
+                    <!--<TextBlock Text="{x:Bind MasterMenuItem.Repetition, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />-->
+
+                    <TextBlock Text="Son" Style="{StaticResource CaptionTextBlockStyle}" Margin="0,12,0,0" RelativePanel.Below="ListJour"/>
+                    
+                    <!--<TextBlock Text="{x:Bind MasterMenuItem.Son, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />-->
+
+                    <TextBlock Text="Minutes" Style="{StaticResource CaptionTextBlockStyle}" Margin="0,12,0,0"/>
+                    <!--<TextBlock Text="{x:Bind MasterMenuItem.IntervalRepetition, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />-->
                 </StackPanel>
             </Grid>
         </ScrollViewer>

@@ -163,9 +163,6 @@
     <Compile Include="Views\AccueilDetailPage.xaml.cs">
       <DependentUpon>AccueilDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AccueilPage - Copier.xaml.cs">
-      <DependentUpon>AccueilPage - Copier.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\AccueilPage.xaml.cs">
       <DependentUpon>AccueilPage.xaml</DependentUpon>
     </Compile>
@@ -224,10 +221,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AccueilDetailPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\AccueilPage - Copier.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

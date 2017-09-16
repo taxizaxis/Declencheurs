@@ -15,15 +15,15 @@ namespace Declencheurs.Views
 {
     public sealed partial class AccueilPage : Page, INotifyPropertyChanged
     {
-        private SampleOrder _selected;
+        private Declencheur _selected;
 
-        public SampleOrder Selected
+        public Declencheur Selected
         {
             get { return _selected; }
             set { Set(ref _selected, value); }
         }
 
-        public ObservableCollection<SampleOrder> SampleItems { get; private set; } = new ObservableCollection<SampleOrder>();
+        public ObservableCollection<Declencheur> DeclencheurItems { get; private set; } = new ObservableCollection<Declencheur>();
 
         public AccueilPage()
         {
@@ -37,21 +37,21 @@ namespace Declencheurs.Views
 
         private async Task LoadDataAsync()
         {
-            SampleItems.Clear();
+            DeclencheurItems.Clear();
 
-            var data = await SampleDataService.GetSampleModelDataAsync();
+            var data = await DeclencheursService.GetSampleModelDataAsync();
 
             foreach (var item in data)
             {
-                SampleItems.Add(item);
+                DeclencheurItems.Add(item);
             }
 
-            Selected = SampleItems.First();
+            Selected = DeclencheurItems.First();
         }
 
         private void MasterListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var item = e?.ClickedItem as SampleOrder;
+            var item = e?.ClickedItem as Declencheur;
             if (item != null)
             {
                 if (WindowStates.CurrentState == NarrowState)
