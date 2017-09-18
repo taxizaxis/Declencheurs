@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignWidth="400" Height="1066.555">
+    d:DesignWidth="400" Height="966.775">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -25,18 +25,18 @@
             ScrollViewer.VerticalScrollMode="Auto">
 
             <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your detail content.-->
-            <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" >
 
                 <!--Replate this StackPanel with your detail content.-->
                 <StackPanel Orientation="Vertical" Margin="{StaticResource MediumLeftTopRightBottomMargin}">
 
                     <TextBlock x:Name="TitreNom" Text="Nom du déclencheur" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0" />
-                    <TextBlock x:Name="Nom" Text="{x:Bind MasterMenuItem.Nom , Mode=OneWay}" Margin="0,12,0,0" Style="{StaticResource BodyTextStyle}" RelativePanel.Below="TitreNom" />
+                    <TextBox x:Name="Nom" Text="{x:Bind MasterMenuItem.Nom , Mode=OneWay}" Margin="0,12,0,0"  RelativePanel.Below="TitreNom" />
 
                     <TextBlock x:Name="TitreHeure" Text="Heure" Style="{ThemeResource TitleTextBlockStyle}" RelativePanel.Below="Nom" Margin="0,12,0,0"/>
                     <!--<TimePicker x:Name="Heure" ClockIdentifier="24HourClock" RelativePanel.Below="TitreHeure" Margin="0,12,0,0"/>-->
-                    <TextBlock x:Name="Heure" Text="{x:Bind MasterMenuItem.Heure, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" RelativePanel.Below="TitreHeure" Margin="0,12,0,0"/>
-
+                    <TextBlock x:Name="Heure" Text="{x:Bind MasterMenuItem.Heure, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" RelativePanel.Below="TitreHeure" Margin="0,12,0,0" />
+                    <TimePicker x:Name="DeclencheurTimePicker" Time="{x:Bind MasterMenuItem.Heure}" ClockIdentifier="24HourClock" RelativePanel.Below="TitreHeure" Margin="0,12,0,0"/>
                     <TextBlock x:Name="TitreComposant" Text="Composant" Style="{ThemeResource TitleTextBlockStyle}" RelativePanel.Below="Heure" Margin="0,12,0,0" />
                     <!--<ComboBox x:Name="Composant" ItemsSource="{x:Bind MasterMenuItem.Composant , Mode=OneWay}" RelativePanel.Below="TitreComposant" Margin="0,12,0,0" Loaded="ListBoxComposant_Loaded"/>-->
                     <TextBlock x:Name="Composant" Text="{x:Bind MasterMenuItem.Composant, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" RelativePanel.Below="TitreComposant" Margin="0,12,0,0"/>
