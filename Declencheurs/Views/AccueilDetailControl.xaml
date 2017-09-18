@@ -5,8 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignWidth="400" Height="1066.555">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="48"/>
@@ -31,18 +31,19 @@
                 <StackPanel Orientation="Vertical" Margin="{StaticResource MediumLeftTopRightBottomMargin}">
 
                     <TextBlock x:Name="TitreNom" Text="Nom du déclencheur" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0" />
-                    <TextBox x:Name="Nom" Text="{Binding Nom}" Width="500" Margin="0,12,0,0" RelativePanel.Below="TitreNom" />
+                    <TextBlock x:Name="Nom" Text="{x:Bind MasterMenuItem.Nom , Mode=OneWay}" Margin="0,12,0,0" Style="{StaticResource BodyTextStyle}" RelativePanel.Below="TitreNom" />
 
-                    <TextBlock x:Name="TitreHeure" Text="Heure" Style="{StaticResource HeaderTextBlockStyle }" RelativePanel.Below="TitreNom" Margin="0,12,0,0"/>
-                    <TimePicker x:Name="Heure" ClockIdentifier="24HourClock" RelativePanel.Below="TitreHeure" Margin="0,12,0,0"/>
-                    <!--<TextBlock Text="{x:Bind MasterMenuItem.Heure, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />-->
+                    <TextBlock x:Name="TitreHeure" Text="Heure" Style="{ThemeResource TitleTextBlockStyle}" RelativePanel.Below="Nom" Margin="0,12,0,0"/>
+                    <!--<TimePicker x:Name="Heure" ClockIdentifier="24HourClock" RelativePanel.Below="TitreHeure" Margin="0,12,0,0"/>-->
+                    <TextBlock x:Name="Heure" Text="{x:Bind MasterMenuItem.Heure, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" RelativePanel.Below="TitreHeure" Margin="0,12,0,0"/>
 
-                    <TextBlock x:Name="TitreComposant" Text="Composant" Style="{StaticResource CaptionTextBlockStyle}" RelativePanel.Below="Heure" Margin="0,12,0,0" />
-                    <ComboBox x:Name="Composant" Height="20" Width="150" ItemsSource="{Binding}" RelativePanel.Below="TitreComposant" Margin="0,12,0,0"/>
-                    <!--<TextBlock Text="{x:Bind MasterMenuItem.Composant, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />-->
+                    <TextBlock x:Name="TitreComposant" Text="Composant" Style="{ThemeResource TitleTextBlockStyle}" RelativePanel.Below="Heure" Margin="0,12,0,0" />
+                    <!--<ComboBox x:Name="Composant" ItemsSource="{x:Bind MasterMenuItem.Composant , Mode=OneWay}" RelativePanel.Below="TitreComposant" Margin="0,12,0,0" Loaded="ListBoxComposant_Loaded"/>-->
+                    <TextBlock x:Name="Composant" Text="{x:Bind MasterMenuItem.Composant, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" RelativePanel.Below="TitreComposant" Margin="0,12,0,0"/>
 
-                    <TextBlock Text="Jours" Style="{StaticResource CaptionTextBlockStyle}" Margin="0,12,0,0" RelativePanel.Below="Composant"/>
-                    <StackPanel x:Name="ListJour" Margin="0,12,0,0"  RelativePanel.Below="Jours">
+                    <TextBlock x:Name="TitreJours" Text="Jours" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0" RelativePanel.Below="Composant"/>
+                    <!--<ListBox  x:Name="ListBoxListJour" Margin="0,12,0,0" RelativePanel.Below="TitreJours">
+                    <StackPanel x:Name="ListJour" Margin="0,12,0,0" >
                         <CheckBox x:Name="CheckboxAll" Checked="SelectAll_Checked" Indeterminate="SelectAll_Indeterminate" Unchecked="SelectAll_Unchecked" Content="Tous les jours" IsThreeState="True" />
                         <CheckBox x:Name="CheckboxLundi" Checked="Option_Checked" Content="Lundi" Unchecked="Option_Unchecked"/>
                         <CheckBox x:Name="CheckboxMardi" Checked="Option_Checked" Content="Mardi" Unchecked="Option_Unchecked"/>
@@ -52,14 +53,16 @@
                         <CheckBox x:Name="CheckboxSamedi" Checked="Option_Checked" Content="Samedi" Unchecked="Option_Unchecked"/>
                         <CheckBox x:Name="CheckboxDimanche" Checked="Option_Checked" Content="Dimanche" Unchecked="Option_Unchecked"/>
                     </StackPanel>
-                    <!--<TextBlock Text="{x:Bind MasterMenuItem.Repetition, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />-->
+                    </ListBox>-->
+                    <TextBlock x:Name="Repetition" Text="{x:Bind MasterMenuItem.Repetition, Mode=OneWay}" Margin="0,12,0,0" Style="{StaticResource BodyTextStyle}" RelativePanel.Below="TitreJours"/>
 
-                    <TextBlock Text="Son" Style="{StaticResource CaptionTextBlockStyle}" Margin="0,12,0,0" RelativePanel.Below="ListJour"/>
-                    
-                    <!--<TextBlock Text="{x:Bind MasterMenuItem.Son, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />-->
+                    <TextBlock x:Name="TitreSon" Text="Son" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0" RelativePanel.Below="Repetition"/>
+                    <!--<ListBox x:Name="Son" ItemsSource="{x:Bind MasterMenuItem.Son}" Height="164" Loaded="ListBoxSon_Loaded" RelativePanel.Below="TitreSon"/>-->
+                    <TextBlock x:Name="Son" Text="{x:Bind MasterMenuItem.Son, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" Margin="0,12,0,0" RelativePanel.Below="TitreSon" />
 
-                    <TextBlock Text="Minutes" Style="{StaticResource CaptionTextBlockStyle}" Margin="0,12,0,0"/>
-                    <!--<TextBlock Text="{x:Bind MasterMenuItem.IntervalRepetition, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />-->
+                    <TextBlock x:Name="TitreIntervalRepetition" Text="Minutes" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0" RelativePanel.Below="Son"/>
+                    <!--<ListBox x:Name="Temps" ItemsSource="{x:Bind MasterMenuItem.IntervalRepetition}" Loaded="ListBoxMinutes_Loaded"/>-->
+                    <TextBlock x:Name="IntervalRepetition" Text="{x:Bind MasterMenuItem.IntervalRepetition, Mode=OneWay}" Margin="0,12,0,0" Style="{StaticResource BodyTextStyle}" RelativePanel.Below="TitreIntervalRepetition"/>
                 </StackPanel>
             </Grid>
         </ScrollViewer>

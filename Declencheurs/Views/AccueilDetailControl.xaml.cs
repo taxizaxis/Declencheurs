@@ -139,5 +139,18 @@ namespace Declencheurs.Views
                 }
             }
         }
+        private void ListBoxSon_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void ListBoxMinutes_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void ListBoxComposant_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
