@@ -38,22 +38,27 @@
                     <TextBlock x:Name="Heure" Text="{x:Bind MasterMenuItem.Heure, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" RelativePanel.Below="TitreHeure" Margin="0,12,0,0" />
                     <TimePicker x:Name="DeclencheurTimePicker" Time="{x:Bind MasterMenuItem.Heure}" ClockIdentifier="24HourClock" RelativePanel.Below="TitreHeure" Margin="0,12,0,0"/>
                     <TextBlock x:Name="TitreComposant" Text="Composant" Style="{ThemeResource TitleTextBlockStyle}" RelativePanel.Below="Heure" Margin="0,12,0,0" />
+                    
                     <!--<ComboBox x:Name="Composant" ItemsSource="{x:Bind MasterMenuItem.Composant , Mode=OneWay}" RelativePanel.Below="TitreComposant" Margin="0,12,0,0" Loaded="ListBoxComposant_Loaded"/>-->
+                    
                     <TextBlock x:Name="Composant" Text="{x:Bind MasterMenuItem.Composant, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" RelativePanel.Below="TitreComposant" Margin="0,12,0,0"/>
-
+                    <ComboBox Width="366" PlaceholderText="Choisissez les composants">
+                        <CheckBox x:Name="CheckboxAllComposant" Checked="SelectAllComposant_Checked" Indeterminate="SelectAllComposant_Indeterminate" Unchecked="SelectAllComposant_Unchecked" Content="Tous les composants" IsThreeState="True" />
+                            <CheckBox x:Name="CheckboxWiFi" Checked="OptionComposant_Checked" Content="WiFi" Unchecked="OptionComposant_Unchecked"/>
+                            <CheckBox x:Name="CheckboxBluetooth" Checked="OptionComposant_Checked" Content="Bluetooth" Unchecked="OptionComposant_Unchecked"/>
+                        <CheckBox x:Name="CheckboxDonnéesMobiles" Checked="OptionComposant_Checked" Content="Données mobiles" Unchecked="OptionComposant_Unchecked"/>
+                    </ComboBox>
                     <TextBlock x:Name="TitreJours" Text="Jours" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0" RelativePanel.Below="Composant"/>
-                    <!--<ListBox  x:Name="ListBoxListJour" Margin="0,12,0,0" RelativePanel.Below="TitreJours">
-                    <StackPanel x:Name="ListJour" Margin="0,12,0,0" >
+                    <ComboBox Width="366" PlaceholderText="Choisissez les jours" >
                         <CheckBox x:Name="CheckboxAll" Checked="SelectAll_Checked" Indeterminate="SelectAll_Indeterminate" Unchecked="SelectAll_Unchecked" Content="Tous les jours" IsThreeState="True" />
-                        <CheckBox x:Name="CheckboxLundi" Checked="Option_Checked" Content="Lundi" Unchecked="Option_Unchecked"/>
-                        <CheckBox x:Name="CheckboxMardi" Checked="Option_Checked" Content="Mardi" Unchecked="Option_Unchecked"/>
-                        <CheckBox x:Name="CheckboxMercredi" Checked="Option_Checked" Content="Mercredi" Unchecked="Option_Unchecked"/>
-                        <CheckBox x:Name="CheckboxJeudi" Checked="Option_Checked" Content="Jeudi" Unchecked="Option_Unchecked"/>
-                        <CheckBox x:Name="CheckboxVendredi" Checked="Option_Checked" Content="Vendredi" Unchecked="Option_Unchecked"/>
-                        <CheckBox x:Name="CheckboxSamedi" Checked="Option_Checked" Content="Samedi" Unchecked="Option_Unchecked"/>
+                            <CheckBox x:Name="CheckboxLundi" Checked="Option_Checked" Content="Lundi" Unchecked="Option_Unchecked"/>
+                            <CheckBox x:Name="CheckboxMardi" Checked="Option_Checked" Content="Mardi" Unchecked="Option_Unchecked"/>
+                            <CheckBox x:Name="CheckboxMercredi" Checked="Option_Checked" Content="Mercredi" Unchecked="Option_Unchecked"/>
+                            <CheckBox x:Name="CheckboxJeudi" Checked="Option_Checked" Content="Jeudi" Unchecked="Option_Unchecked"/>
+                            <CheckBox x:Name="CheckboxVendredi" Checked="Option_Checked" Content="Vendredi" Unchecked="Option_Unchecked"/>
+                            <CheckBox x:Name="CheckboxSamedi" Checked="Option_Checked" Content="Samedi" Unchecked="Option_Unchecked"/>
                         <CheckBox x:Name="CheckboxDimanche" Checked="Option_Checked" Content="Dimanche" Unchecked="Option_Unchecked"/>
-                    </StackPanel>
-                    </ListBox>-->
+                    </ComboBox>
                     <TextBlock x:Name="Repetition" Text="{x:Bind MasterMenuItem.Repetition, Mode=OneWay}" Margin="0,12,0,0" Style="{StaticResource BodyTextStyle}" RelativePanel.Below="TitreJours"/>
 
                     <TextBlock x:Name="TitreSon" Text="Son" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0" RelativePanel.Below="Repetition"/>
