@@ -14,7 +14,7 @@ namespace Declencheurs.Views
         }
 
         public static readonly DependencyProperty MasterMenuItemProperty = DependencyProperty.Register("MasterMenuItem", typeof(Declencheur), typeof(AccueilDetailControl), new PropertyMetadata(null));
-        private CheckBox sender;
+        
 
         public AccueilDetailControl()
         {
@@ -32,7 +32,7 @@ namespace Declencheurs.Views
         }
         private void OptionComposant_Checked(object sender, RoutedEventArgs e)
         {
-            SetCheckedState();
+            SetCheckedStateComposant();
         }
 
         private void Option_Unchecked(object sender, RoutedEventArgs e)
@@ -41,7 +41,7 @@ namespace Declencheurs.Views
         }
         private void OptionComposant_Unchecked(object sender, RoutedEventArgs e)
         {
-            SetCheckedState();
+            SetCheckedStateComposant();
         }
 
         private void SelectAll_Checked(object sender, RoutedEventArgs e)
@@ -63,7 +63,7 @@ namespace Declencheurs.Views
             CheckBox CheckboxBluetooth = sender as CheckBox;
             CheckBox CheckboxDonnéesMobiles = sender as CheckBox;
 
-            CheckboxLundi.IsChecked = CheckboxMardi.IsChecked = CheckboxMercredi.IsChecked = CheckboxJeudi.IsChecked = CheckboxVendredi.IsChecked = CheckboxSamedi.IsChecked = CheckboxDimanche.IsChecked = true;
+            CheckboxWiFi.IsChecked = CheckboxBluetooth.IsChecked = CheckboxDonnéesMobiles.IsChecked = true;
         }
 
         private void SelectAll_Unchecked(object sender, RoutedEventArgs e)
@@ -80,15 +80,11 @@ namespace Declencheurs.Views
         }
         private void SelectAllComposant_Unchecked(object sender, RoutedEventArgs e)
         {
-            CheckBox CheckboxLundi = sender as CheckBox;
-            CheckBox CheckboxMardi = sender as CheckBox;
-            CheckBox CheckboxMercredi = sender as CheckBox;
-            CheckBox CheckboxJeudi = sender as CheckBox;
-            CheckBox CheckboxVendredi = sender as CheckBox;
-            CheckBox CheckboxSamedi = sender as CheckBox;
-            CheckBox CheckboxDimanche = sender as CheckBox;
+            CheckBox CheckboxWiFi = sender as CheckBox;
+            CheckBox CheckboxBluetooth = sender as CheckBox;
+            CheckBox CheckboxDonnéesMobiles = sender as CheckBox;
 
-            CheckboxLundi.IsChecked = CheckboxMardi.IsChecked = CheckboxMercredi.IsChecked = CheckboxJeudi.IsChecked = CheckboxVendredi.IsChecked = CheckboxSamedi.IsChecked = CheckboxDimanche.IsChecked = false;
+            CheckboxWiFi.IsChecked = CheckboxBluetooth.IsChecked = CheckboxDonnéesMobiles.IsChecked = false;
         }
 
         private void SelectAll_Indeterminate(object sender, RoutedEventArgs e)
@@ -128,27 +124,18 @@ namespace Declencheurs.Views
             // Instead, we want to uncheck all the boxes,
             // so we do this programatically. The indeterminate state should
             // only be set programatically, not by the user.
-            CheckBox CheckboxLundi = sender as CheckBox;
-            CheckBox CheckboxMardi = sender as CheckBox;
-            CheckBox CheckboxMercredi = sender as CheckBox;
-            CheckBox CheckboxJeudi = sender as CheckBox;
-            CheckBox CheckboxVendredi = sender as CheckBox;
-            CheckBox CheckboxSamedi = sender as CheckBox;
-            CheckBox CheckboxDimanche = sender as CheckBox;
-            CheckBox CheckboxAll = sender as CheckBox;
+            CheckBox CheckboxWiFi = sender as CheckBox;
+            CheckBox CheckboxBluetooth = sender as CheckBox;
+            CheckBox CheckboxDonnéesMobiles = sender as CheckBox;
 
 
-            if (CheckboxLundi.IsChecked == true &&
-                CheckboxMardi.IsChecked == true &&
-                CheckboxMercredi.IsChecked == true &&
-                CheckboxJeudi.IsChecked == true &&
-                CheckboxVendredi.IsChecked == true &&
-                CheckboxSamedi.IsChecked == true &&
-                CheckboxDimanche.IsChecked == true)
+            if (CheckboxWiFi.IsChecked == true &&
+                CheckboxBluetooth.IsChecked == true &&
+                CheckboxDonnéesMobiles.IsChecked == true)
             {
                 // This will cause SelectAll_Unchecked to be executed, so
                 // we don't need to uncheck the other boxes here.
-                CheckboxAll.IsChecked = false;
+                CheckboxAllComposant.IsChecked = false;
             }
         }
         private void SetCheckedState()
@@ -195,6 +182,39 @@ namespace Declencheurs.Views
                 }
             }
         }
+
+        private void SetCheckedStateComposant()
+        {
+
+            // Controls are null the first time this is called, so we just 
+            // need to perform a null check on any one of the controls.
+
+            CheckBox CheckboxWiFi = sender as CheckBox;
+            CheckBox CheckboxBluetooth = sender as CheckBox;
+            CheckBox CheckboxDonnéesMobiles = sender as CheckBox;
+
+            if (CheckboxWiFi != null)
+            {
+                if (CheckboxWiFi.IsChecked == true &&
+                    CheckboxBluetooth.IsChecked == true &&
+                    CheckboxDonnéesMobiles.IsChecked == true)
+                {
+                    CheckboxAllComposant.IsChecked = true;
+                }
+                else if (CheckboxWiFi.IsChecked == false &&
+                    CheckboxBluetooth.IsChecked == false &&
+                    CheckboxDonnéesMobiles.IsChecked == false)
+                {
+                    CheckboxAllComposant.IsChecked = false;
+                }
+                else
+                {
+                    // Set third state (indeterminate) by setting IsChecked to null.
+                    CheckboxAllComposant.IsChecked = null;
+                }
+            }
+        }
+
         private void ListBoxSon_Loaded(object sender, RoutedEventArgs e)
         {
 

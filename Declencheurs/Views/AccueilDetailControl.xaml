@@ -49,7 +49,7 @@
                         <CheckBox x:Name="CheckboxDonnéesMobiles" Checked="OptionComposant_Checked" Content="Données mobiles" Unchecked="OptionComposant_Unchecked"/>
                     </ComboBox>
                     <TextBlock x:Name="TitreJours" Text="Jours" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0" RelativePanel.Below="Composant"/>
-                    <ComboBox Width="366" PlaceholderText="Choisissez les jours" >
+                    <ComboBox Width="366" PlaceholderText="Choisissez les jours">
                         <CheckBox x:Name="CheckboxAll" Checked="SelectAll_Checked" Indeterminate="SelectAll_Indeterminate" Unchecked="SelectAll_Unchecked" Content="Tous les jours" IsThreeState="True" />
                             <CheckBox x:Name="CheckboxLundi" Checked="Option_Checked" Content="Lundi" Unchecked="Option_Unchecked"/>
                             <CheckBox x:Name="CheckboxMardi" Checked="Option_Checked" Content="Mardi" Unchecked="Option_Unchecked"/>
