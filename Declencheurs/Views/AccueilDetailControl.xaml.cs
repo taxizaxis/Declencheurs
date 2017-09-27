@@ -59,9 +59,7 @@ namespace Declencheurs.Views
 
         private void SelectAllComposant_Checked(object sender, RoutedEventArgs e)
         {
-            CheckBox CheckboxWiFi = sender as CheckBox;
-            CheckBox CheckboxBluetooth = sender as CheckBox;
-            CheckBox CheckboxDonnéesMobiles = sender as CheckBox;
+            
 
             CheckboxWiFi.IsChecked = CheckboxBluetooth.IsChecked = CheckboxDonnéesMobiles.IsChecked = true;
         }
@@ -80,9 +78,7 @@ namespace Declencheurs.Views
         }
         private void SelectAllComposant_Unchecked(object sender, RoutedEventArgs e)
         {
-            CheckBox CheckboxWiFi = sender as CheckBox;
-            CheckBox CheckboxBluetooth = sender as CheckBox;
-            CheckBox CheckboxDonnéesMobiles = sender as CheckBox;
+           
 
             CheckboxWiFi.IsChecked = CheckboxBluetooth.IsChecked = CheckboxDonnéesMobiles.IsChecked = false;
         }
@@ -124,9 +120,7 @@ namespace Declencheurs.Views
             // Instead, we want to uncheck all the boxes,
             // so we do this programatically. The indeterminate state should
             // only be set programatically, not by the user.
-            CheckBox CheckboxWiFi = sender as CheckBox;
-            CheckBox CheckboxBluetooth = sender as CheckBox;
-            CheckBox CheckboxDonnéesMobiles = sender as CheckBox;
+            
 
 
             if (CheckboxWiFi.IsChecked == true &&
@@ -143,15 +137,6 @@ namespace Declencheurs.Views
 
             // Controls are null the first time this is called, so we just 
             // need to perform a null check on any one of the controls.
-
-            CheckBox CheckboxLundi = sender as CheckBox;
-            CheckBox CheckboxMardi = sender as CheckBox;
-            CheckBox CheckboxMercredi = sender as CheckBox;
-            CheckBox CheckboxJeudi = sender as CheckBox;
-            CheckBox CheckboxVendredi = sender as CheckBox;
-            CheckBox CheckboxSamedi = sender as CheckBox;
-            CheckBox CheckboxDimanche = sender as CheckBox;
-            CheckBox CheckboxAll = sender as CheckBox;
 
             if (CheckboxLundi != null)
             {
@@ -189,9 +174,7 @@ namespace Declencheurs.Views
             // Controls are null the first time this is called, so we just 
             // need to perform a null check on any one of the controls.
 
-            CheckBox CheckboxWiFi = sender as CheckBox;
-            CheckBox CheckboxBluetooth = sender as CheckBox;
-            CheckBox CheckboxDonnéesMobiles = sender as CheckBox;
+           
 
             if (CheckboxWiFi != null)
             {
